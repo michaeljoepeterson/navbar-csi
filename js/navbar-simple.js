@@ -101,7 +101,7 @@ NavbarSimple.prototype.buildTemplate = function(){
 
                 for(var k = 0;k < link.links.length;k++){
                     let sublink = link.links[k];
-                    li += '<li>' + sublink.title + '</li>';
+                    li += '<li><a href="#">' + sublink.title + '</a></li>';
                 }
                 li += '</ul></li>';
                 template += li;
