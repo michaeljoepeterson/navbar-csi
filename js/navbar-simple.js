@@ -54,24 +54,24 @@ NavbarSimple.prototype.buildTemplate = function(){
         var template = '<ul>'; 
         for(var i = 0;i < this.links.length;i++){
             var link = this.links[i];
-            var className = this.sources[link.source] ? this.sources[link.source] : 'nav-link';
+            var className = this.sources[link.source] ? this.sources[link.source] : 'nav-link-cust';
             if(link.links){
-                var li = '<li class="'+ className +'"><a href=' + link.url + '>' + link.title + '</a></li><ul>';
+                var li = '<li class=" nav-item-cust '+ className +'"><a href=' + link.url + '>' + link.title + '</a><ul>';
 
                 for(var k = 0;k < link.links.length;k++){
                     let sublink = link.links[k];
                     li += '<li>' + sublink.title + '</li>';
                 }
-                li += '</ul>';
+                li += '</ul></li>';
                 template += li;
             }
             else{
-                var li = '<li class="'+ className +'"><a href=' + link.url + '>' + link.title + '</a></li>';
+                var li = '<li class=" nav-item-cust '+ className +'"><a href=' + link.url + '>' + link.title + '</a></li>';
                 template += li;
             }
 
         }
-        template += '</ul>';
+        template += '</ul><div class="search-container"><input type="text" placeholder="Search"></div>';
         return template;
     }
     catch(e){
