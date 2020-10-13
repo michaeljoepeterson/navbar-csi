@@ -33,6 +33,7 @@ NavbarSimple.prototype.initNav = function(){
         console.log(template);
         var navContent = $(template);
         $(nav).append(navContent);
+        this.initHoverListeners();
     }
     catch(e){
         console.log('error initializing simple nav: ',e);
@@ -49,14 +50,54 @@ NavbarSimple.prototype.emptyNav = function(){
     }
 }
 
+NavbarSimple.prototype.handleOut = function(event,link){
+    try{
+        console.log('passed link: ',link);
+        $(link).addClass('hidden');
+    }
+    catch(e){
+        console.log('error initializing simple nav: ',e);
+    }
+}
+
+NavbarSimple.prototype.handleHover = function(event,link){
+    try{
+        console.log('passed link: ',link);
+        $(link).removeClass('hidden');
+    }
+    catch(e){
+        console.log('error initializing simple nav: ',e);
+    }
+}
+
+NavbarSimple.prototype.initHoverListeners = function(){
+    try{
+        var navLinks = $('#' + this.navId + ' > ul .nav-item-cust');
+        console.log(navLinks);
+        for(var i = 0;i < navLinks.length;i++){
+            let link = navLinks[i];
+            link.addEventListener('mouseover',function(event){
+                this.handleHover(event,link);
+            }.bind(this));
+
+            link.addEventListener('mouseout',function(event){
+                this.handleOut(event,link);
+            }.bind(this));
+        }
+    }
+    catch(e){
+        console.log('error initializing simple nav: ',e);
+    }
+}
+
 NavbarSimple.prototype.buildTemplate = function(){
     try{
         var template = '<ul>'; 
         for(var i = 0;i < this.links.length;i++){
             var link = this.links[i];
-            var className = this.sources[link.source] ? this.sources[link.source] : 'nav-link-cust';
+            var className = this.sources[link.source] ? this.sources[link.source] + ' nav-item-cust hidden' : 'nav-item-cust hidden';
             if(link.links){
-                var li = '<li class=" nav-item-cust '+ className +'"><a href=' + link.url + '>' + link.title + '</a><ul>';
+                var li = '<li class="'+ className +'"><a href=' + link.url + '>' + link.title + '</a><ul>';
 
                 for(var k = 0;k < link.links.length;k++){
                     let sublink = link.links[k];
@@ -66,7 +107,7 @@ NavbarSimple.prototype.buildTemplate = function(){
                 template += li;
             }
             else{
-                var li = '<li class=" nav-item-cust '+ className +'"><a href=' + link.url + '>' + link.title + '</a></li>';
+                var li = '<li class="'+ className +'"><a href=' + link.url + '>' + link.title + '</a></li>';
                 template += li;
             }
 
