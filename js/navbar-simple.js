@@ -97,7 +97,7 @@ NavbarSimple.prototype.buildTemplate = function(){
             var link = this.links[i];
             var className = this.sources[link.source] ? this.sources[link.source] + ' nav-item-cust hidden' : 'nav-item-cust hidden';
             if(link.links){
-                var li = '<li class="'+ className +'"><a href=' + link.url + '>' + link.title + '</a><ul>';
+                var li = '<li class="'+ className +'"><a href=' + link.url + '>' + link.title + '<i class="material-icons expand-icon">expand_less</i></a><ul>';
 
                 for(var k = 0;k < link.links.length;k++){
                     let sublink = link.links[k];

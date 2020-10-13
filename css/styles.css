@@ -31,6 +31,8 @@
     text-decoration: none;
     color: white;
     font-size: 1.2em;
+    display: flex;
+    align-items: center;
 }
 
 .nav-item-cust > ul{
@@ -76,4 +78,12 @@
 
 .hidden > ul{
     display: none;
+}
+
+.hidden > a > i{
+    transform: rotate(180deg);
+}
+
+.expand-icon{
+    transition: 500ms all;
 }
