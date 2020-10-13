@@ -30,7 +30,7 @@
 .nav-item-cust > a{
     text-decoration: none;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.4em;
     display: flex;
     align-items: center;
 }
@@ -39,15 +39,17 @@
     position: absolute;
     padding:0;
     background-color: rgba(115, 115, 115,1);
-    margin: 0 0.5em;
-    padding: 0.5em 1em;
+    /* margin: 0 0.5em; */
+    margin-top: 0.3em;
+    padding: 0.8em 1.2em;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.5), 0px 3px 4px 0px rgba(0,0,0,0.5), 0px 1px 8px 0px rgba(0,0,0,0.12);
 }
 
 .nav-item-cust > ul > li > a{
     color: white;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 
@@ -64,20 +66,41 @@
 
 }
 
-.nav-left{
-
+.nav-left > ul{
+    overflow: hidden;
+    transition: 450ms all;
+}
+.nav-left > ul > li{
+    transition: 500ms transform;
 }
 
-.nav-fade{
-
+.nav-fade > ul{
+    transition: 450ms all;
+    opacity: 1;
 }
 
 .nav-large{
 
 }
 
-.hidden > ul{
+.hidden.nav-simple > ul{
     display: none;
+}
+
+.hidden.nav-simple > ul{
+    display: none;
+}
+
+.hidden.nav-fade > ul{
+    opacity: 0;
+}
+
+.hidden.nav-left > ul{
+    opacity: 0;
+}
+
+.hidden.nav-left > ul > li{
+    transform: translateX(-7em);
 }
 
 .hidden > a > i{

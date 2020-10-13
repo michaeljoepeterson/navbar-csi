@@ -68,6 +68,7 @@ App.prototype.init = function(){
                     }
                 ]
             },
+            /*
             {
                 title:'Large with image',
                 url:'#',
@@ -88,6 +89,7 @@ App.prototype.init = function(){
                     }
                 ]
             },
+            */
             {
                 title:'no sublist',
                 url:'#'
